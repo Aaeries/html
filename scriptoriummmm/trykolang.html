@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Shelf</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    
+</head>
+<body>
+    <div class="topbar">
+        <div class="user-profile">
+            <div class="profile-icon">
+                <img src="barbie.jpg" alt="User Profile">
+            </div>
+            <div class="user-info">
+                <div class="username">BARBIE SANTOS</div>
+                <div class="user-type">USER</div>
+            </div>
+        </div>
+        <div class="logout">
+            <a href="#"><i class="fas fa-sign-out-alt"></i></a>
+        </div>
+    </div>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="logo-container">
+            <img src="logo.svg" alt="Library Logo" class="logo">
+        </div>
+        <nav class="nav-menu">
+            <ul>
+                <li class="nav-item">
+                    <a href="#"><i class="fas fa-home"></i> Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a href="#"><i class="fas fa-book"></i> My Shelf</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#"><i class="fas fa-search"></i> Search</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="#">About</a>
+            <a href="#">Support</a>
+            <a href="#">Terms & condition</a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <section class="hero-section">
+            <div class="hero-text-container">
+                <div class="text">EXPLORE YOUR</div>
+                <div class="text">BOOK TREASURES!</div>
+            </div>
+
+            <div class="search-container">
+                <div class="search-tabs">
+                    <div class="tab active">All</div>
+                    <div class="tab">User</div>
+                </div>
+                <input type="text" class="search-input" placeholder="Search...">
+            </div>
+        </section>
+
+        <section class="books-grid">
+            <!-- Book 1 -->
+            <div class="book-card">
+                <div class="book-image">
+                    <img src="image 1.svg" alt="Harry Potter Book Cover">
+                </div>
+                <div class="book-details">
+                    <h3 class="book-title">HARRY POTTER AND THE PHILOSOPHER'S STONE</h3>
+                    <p class="book-author">By J.K. Rowling</p>
+                    <p class="book-isbn">ISBN: 978-0747532699</p>
+                    <p class="book-remaining">Remaining: 8</p>
+                </div>
+                <button class="read-btn">Read</button>
+            </div>
+
+            <!-- Book 2 -->
+            <div class="book-card">
+                <div class="book-image">
+                    <img src="image 4.svg" alt="A Brief History of Time Book Cover">
+                </div>
+                <div class="book-details">
+                    <h3 class="book-title">A BRIEF HISTORY OF TIME</h3>
+                    <p class="book-author">By Stephen Hawking</p>
+                    <p class="book-isbn">ISBN: 978-0553380163</p>
+                    <p class="book-remaining">Remaining: 8</p>
+                </div>
+                <button class="read-btn">Read</button>
+            </div>
+
+            <!-- Book 3 -->
+            <div class="book-card">
+                <div class="book-image">
+                    <img src="image 28.svg" alt="Thinking, Fast and Slow Book Cover">
+                </div>
+                <div class="book-details">
+                    <h3 class="book-title">THINKING, FAST AND SLOW</h3>
+                    <p class="book-author">By Daniel Kahneman</p>
+                    <p class="book-isbn">ISBN: 978-0374533557</p>
+                    <p class="book-remaining">Remaining: 8</p>
+                </div>
+                <button class="read-btn">Read</button>
+            </div>
+
+            <!-- Book 4 -->
+            <div class="book-card">
+                <div class="book-image">
+                    <img src="image 27.svg" alt="Humpty Dumpty Book Cover">
+                </div>
+                <div class="book-details">
+                    <h3 class="book-title">HUMPTY DUMPTY</h3>
+                    <p class="book-author">By Charles Reasoner</p>
+                    <p class="book-isbn">ISBN: 978-0843178835</p>
+                    <p class="book-remaining">Remaining: 8</p>
+                </div>
+                <button class="read-btn">Read</button>
+            </div>
+
+            <!-- Book 5 -->
+            <div class="book-card">
+                <div class="book-image">
+                    <img src="image 6.svg" alt="The Republic Book Cover">
+                </div>
+                <div class="book-details">
+                    <h3 class="book-title">THE REPUBLIC</h3>
+                    <p class="book-author">By Plato</p>
+                    <p class="book-isbn">ISBN: 978-0140455113</p>
+                    <p class="book-remaining">Remaining: 8</p>
+                </div>
+                <button class="read-btn">Read</button>
+            </div>
+
+            <!-- Book 6 -->
+            <div class="book-card">
+                <div class="book-image">
+                    <img src="image 5.svg" alt="The History of the Ancient World Book Cover">
+                </div>
+                <div class="book-details">
+                    <h3 class="book-title">THE HISTORY OF THE ANCIENT WORLD</h3>
+                    <p class="book-author">By Susan Wise Bauer</p>
+                    <p class="book-isbn">ISBN: 978-0393059748</p>
+                    <p class="book-remaining">Remaining: 8</p>
+                </div>
+                <button class="read-btn">Read</button>
+            </div>
+
+            <!-- More books as needed -->
+        </section>
+    </main>
+
+    <script>
+        // Sidebar functionality
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.querySelector('.main-content');
+        
+        // Make sidebar appear on hover near the left edge
+        document.addEventListener('mousemove', function(e) {
+            if (window.innerWidth > 768) {
+                if (e.clientX < 20) {
+                    sidebar.classList.add('visible');
+                } else if (e.clientX > 250 && !sidebar.contains(e.target)) {
+                    sidebar.classList.remove('visible');
+                }
+            }
+        });
+        
+        // Detect if user interacts with sidebar
+        sidebar.addEventListener('mouseenter', function() {
+            sidebar.classList.add('visible');
+        });
+        
+        // For mobile toggle
+        document.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) {
+                if (e.target.closest('.sidebar-toggle')) {
+                    sidebar.classList.toggle('visible');
+                } else if (!sidebar.contains(e.target) && sidebar.classList.contains('visible')) {
+                    sidebar.classList.remove('visible');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

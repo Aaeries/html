@@ -1,0 +1,400 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f5f5f5;
+    color: #1D3774;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Top navigation bar */
+.topbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 60px;
+    background-color: #6AB0E3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px 0 220px; /* Adjusted for sidebar */
+    color: white;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: padding 0.3s ease;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+}
+
+.profile-icon img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.username {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.user-type {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.logout a {
+    color: white;
+    font-size: 20px;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -200px; /* Hidden by default */
+    width: 200px;
+    height: 100vh;
+    background-color: #6AB0E3;
+    color: white;
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    transition: left 0.3s ease;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+}
+
+.sidebar.visible {
+    left: 0;
+}
+
+.logo-container {
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px; /* Added to move the logo down */
+}
+
+.logo {
+    max-width: 160px; /* Increased from 120px to make it larger */
+    height: auto;
+}
+
+.nav-menu {
+    flex: 1;
+    margin-top: 20px;
+}
+
+.nav-item {
+    padding: 12px 20px;
+    margin-bottom: 5px;
+    transition: background-color 0.3s;
+}
+
+.nav-item:hover, .nav-item.active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.nav-item a {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+.nav-item a i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+.sidebar-footer {
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-footer a {
+    margin-bottom: 10px;
+    font-size: 14px;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.sidebar-footer a:hover {
+    opacity: 1;
+}
+
+/* Main content */
+.main-content {
+    margin-left: 0; /* No margin by default since sidebar is hidden */
+    padding: 70px 20px 30px;
+    transition: margin-left 0.3s ease;
+}
+
+/* When sidebar is visible */
+.sidebar.visible ~ .main-content {
+    margin-left: 200px;
+}
+
+/* Hero section */
+.hero-section {
+    text-align: left;
+    margin-bottom: 40px;
+    position: relative;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+}
+
+/* Hero section */
+.hero-text-container {
+    background-color: #6AB0E3;
+    color: #442200;
+    font-weight: bold;
+    padding: 15px 0;
+    width: 100%;
+    position: relative;
+    margin: 0;
+}
+
+.hero-banner {
+    display: block;
+    width: 100%;
+    margin-bottom: 30px; /* Increased space between banner and search bar */
+    position: relative;
+}
+
+.hero-text-container .text {
+    font-size: 34px; /* Increased from 30px */
+    font-weight: 800; /* Changed from bold to 800 for extra boldness */
+    line-height: 1.2;
+    position: relative;
+    z-index: 2;
+    display: block;
+    text-align: left;
+    margin-left: 240px;
+}
+
+/* Adjust the cutout to align with the text */
+.hero-text-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 220px; /* Aligns with sidebar width */
+    width: 400px; /* Increased from 350px to accommodate larger text */
+    background-color: #f5f5f5;
+    z-index: 1;
+    height: 100%;
+}
+
+/* For responsive design, adjust for when sidebar is hidden */
+@media screen and (max-width: 768px) {
+    .hero-text-container .text {
+        margin-left: 20px; /* Smaller margin when sidebar is collapsed */
+    }
+    
+    .hero-text-container::before {
+        left: 20px; /* Match the smaller margin */
+    }
+}
+
+/* Search container */
+.search-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    position: relative;
+    top: 10px; 
+}
+
+.search-tabs {
+    display: flex;
+}
+
+.tab {
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+    font-size: 14px;
+    color: #555; /* Darken the tab text */
+}
+
+.tab.active {
+    background-color: #f0f0f0;
+    font-weight: bold;
+    color: #333; /* Darken the active tab text */
+}
+
+.search-input {
+    flex: 1; /* Make the input take up remaining space */
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+
+/* Books grid */
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+    padding: 10px;
+}
+
+.book-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    height: 380px;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.book-image {
+    padding: 15px;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 180px;
+}
+
+.book-image img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.book-details {
+    padding: 15px;
+    flex: 1;
+}
+
+.book-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #1D3774;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.book-author, .book-isbn {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.book-remaining {
+    font-size: 12px;
+    font-style: italic;
+    color: #888;
+    margin-top: 5px;
+}
+
+.read-btn {
+    background-color: #6AB0E3;
+    color: white;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    width: 85%;
+    margin: 0 auto 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    position: absolute;
+    bottom: 10px;
+    left: 7.5%;
+}
+
+.read-btn:hover {
+    background-color: #5A9AD0;
+}
+
+/* Responsive design */
+@media screen and (max-width: 992px) {
+    .books-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .topbar {
+        padding-left: 20px;
+    }
+    
+    .sidebar {
+        left: -200px;
+    }
+    
+    .sidebar-toggle {
+        display: block;
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        z-index: 300;
+        background-color: #6AB0E3;
+        color: white;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    
+    .books-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .books-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 15px;
+    }
+    
+    .book-card {
+        height: 350px;
+    }
+}
